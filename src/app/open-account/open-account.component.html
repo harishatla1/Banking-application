@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div id="body">
+                <div class="heading text-center">
+                    <h3>Open Account</h3>
+                </div>
+                <div id="dsg">
+                    <form #OpenAccDate='ngForm' class="from-group text-center" (ngSubmit)=addAccount()>
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <label  >Name:</label>
+                                <input class="form-control" 
+                                        type="text" 
+                                        required 
+                                        name="name"
+                                        placeholder="Enter name" 
+                                        [(ngModel)]='addAccountData.name'
+                                        minlength="3" 
+                                        maxlength="15" 
+                                        #Name="ngModel"
+                                         >
+                                        <span *ngIf="Name.touched && Name.errors?.required" class="text-danger small">
+                                            Name is mandatory!
+                                        </span><br>
+
+                                <label  >Mobile:</label>
+                                <input class="form-control" 
+                                        type="tel"  
+                                        required 
+                                        placeholder="enter mobile"
+                                        [(ngModel)]='addAccountData.mobile'
+                                        name="Mobile"
+                                        minlength="3" 
+                                        maxlength="15" 
+                                        #Mobile="ngModel">
+                                        <span *ngIf="Mobile.touched && Mobile.errors?.required" class="text-danger small">
+                                             Mobile number is mandatory!
+                                        </span><br>
+
+                                <label >Address:</label>
+                                <input class="form-control" 
+                                        type="text"               
+                                        required
+                                        name="address"
+                                        placeholder="Enter Address"
+                                        [(ngModel)]='addAccountData.address'><br>
+
+                                <label  >Date Of Birth:</label>
+                                <input class="form-control" 
+                                        type="date"  
+                                        required
+                                        name="dateOfBirth"
+                                        placeholder="Enter Date Of Birth"
+                                        [(ngModel)]='addAccountData.dateOfBirth'>
+                                <br>
+                                <input id="button" 
+                                        type="submit" 
+                                        class="btn btn-success btn-block"
+                                        >
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="footer text-center ">
+                    <p>Capgemini&#174;</p>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>
+<h3>your name is:{{addAccountData.name}}</h3>
+<h3>your name is:{{addAccountData.mobile}}</h3>
+<h3>your name is:{{addAccountData.address}}</h3>
+
+ 
