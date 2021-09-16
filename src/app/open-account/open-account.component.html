@@ -16,7 +16,7 @@
                                         type="text" 
                                         required 
                                         name="name"
-                                        placeholder="Enter name" 
+                                        placeholder="Enter name"  
                                         [(ngModel)]='addAccountData.name'
                                         minlength="3" 
                                         maxlength="15" 
@@ -26,19 +26,19 @@
                                             Name is mandatory!
                                         </span><br>
 
-                                <label  >Mobile:</label>
-                                <input class="form-control" 
-                                        type="tel"  
-                                        required 
-                                        placeholder="enter mobile"
-                                        [(ngModel)]='addAccountData.mobile'
-                                        name="Mobile"
-                                        minlength="3" 
-                                        maxlength="15" 
-                                        #Mobile="ngModel">
-                                        <span *ngIf="Mobile.touched && Mobile.errors?.required" class="text-danger small">
-                                             Mobile number is mandatory!
-                                        </span><br>
+                                        <label>Mobile:</label>
+                                        <input class="form-control" 
+                                                type="tel"    
+                                                required 
+                                                name="mobile" 
+                                                placeholder="Enter Mobile"
+                                                [(ngModel)]='addAccountData.mobile' 
+                                                minlength="10" 
+                                                maxlength="10" 
+                                                #Mobile="ngModel">
+                                        <div *ngIf="Mobile.touched && Mobile.errors?.minlength" class="alert alert-danger">
+                                            Please use a 10 digit mobile number!
+                                        </div><br>
 
                                 <label >Address:</label>
                                 <input class="form-control" 
@@ -54,12 +54,12 @@
                                         required
                                         name="dateOfBirth"
                                         placeholder="Enter Date Of Birth"
-                                        [(ngModel)]='addAccountData.dateOfBirth'>
+                                        [(ngModel)]='addAccountData.dob'>
                                 <br>
                                 <input id="button" 
                                         type="submit" 
                                         class="btn btn-success btn-block"
-                                        >
+                                    >
                             </div>
                         </div>
                     </form>
@@ -72,6 +72,11 @@
         </div>
     </div>
 </div>
+<!-- <div>
+    <button type="submit" (click)="getAccount()">Get Account Details</button>
+</div> -->
+
+
 <h3>your name is:{{addAccountData.name}}</h3>
 <h3>your name is:{{addAccountData.mobile}}</h3>
 <h3>your name is:{{addAccountData.address}}</h3>

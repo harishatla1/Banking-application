@@ -8,31 +8,46 @@ import { OpenAccount } from '../shared/openAccount';
   styleUrls: ['./open-account.component.css']
 })
 export class OpenAccountComponent implements OnInit {
+  myError: any;
 
   constructor(public openAccount: OpenAccountService ) { }
 
 
   addAccountData: OpenAccount={
 
-        'account_no': 0,
+    'account_no':'',
         'name': '',
-        'mobile': 0,
+        'mobile':'',
         'address': '',
-        'dateOfBirth': 0,
-        'balance': 0
+        'dob': '' ,
+        'bal':0  
   }
-  
-  
 
   ngOnInit(): void {
+    this.openAccount.getAccountDetails().subscribe((response)=>
+    {
+      let accDetailsResponse=response;
+      console.log(accDetailsResponse);
+
+    });
   }
 
   addAccount(){
     this.openAccount.addAccountData(this.addAccountData).subscribe((response)=>
     {
-      this.addAccountData=response;
+      let newAccountData=response;
+      console.log(newAccountData);
+    },
+    (error) => {
+      console.log(error.error.message);
+      this.myError = error.error.message;
     });
-    
-
   }
+
+  // getAccount(){
+  //   this.openAccount.getAccountData().subscribe((response)=>
+  //   {
+  //     let getresponse=response;
+  //   });
+  // }
 }

@@ -1,10 +1,9 @@
 export interface OpenAccount{
     
-        'account_no': number
+        'account_no':string
         'name': string;
-        'mobile': number,
+        'mobile': string,
         'address': string,
-        'dateOfBirth': number,
-        'balance':number
-     
+        'dob': string,
+        'bal': number
 }

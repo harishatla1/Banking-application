@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div id="body">
+                <div class="heading text-center">
+                    <h3>Deposit</h3>
+                </div>
+                <div id="dsg">
+                    <form  #Deposit='ngForm' class="from-group text-center"  (ngSubmit)=depositAmount()>
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <div class="form-group">
+                                    <label for="course"> Course: </label>
+                                    <select class="form-control"
+                                    [(ngModel)]="depositDet.deptId"
+                                    [ngModelOptions]="{standalone: true}"
+                                    (change)=loadBalance($event)
+                                    placeholder="Select Account">
+                                        <option [value]='accountDetails.account_no' *ngFor="let accountDetails of accDetailsresponse">
+                                            {{accountDetails.account_no}}-{{accountDetails.name}}
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label> Balance:</label>
+                                     <input class="form-control"
+                                     type="number"
+                                     [value]='depositDet.amt'
+                                     disabled>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Amount:</label>
+                                    <input class="form-control"
+                                    type="number"
+                                    name="amount" 
+                                    placeholder="Enter Mobile"
+                                    [(ngModel)]='depositDet.amt'>
+                                </div>
+
+                                <input  id="button" 
+                                        type="submit" 
+                                        class="btn btn-success btn-block"
+                                    >
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="footer text-center ">
+                    <p>Capgemini&#174;</p>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>
+
+<h3>{{depositDet.deptId}}</h3>
+<h3>{{depositDet.amt}}</h3>
+
+
+
+<!-- <div class="form-group">
+    <label for="course"> Course: </label>
+    <select class="form-control" 
+        [(ngModel)]="addApplicationData.coursePojo.courseId"
+        (change)=loadBranches($event) 
+        [ngModelOptions]="{standalone: true}">
+        <option [value]='course.courseId' *ngFor="let course of allCourses">
+            {{course.courseId}}-{{course.courseName}}
+        </option>
+    </select>
+</div> -->
+
+ 
+
+ 
