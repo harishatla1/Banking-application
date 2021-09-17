@@ -1,4 +1,4 @@
 export interface Deposit{
-    deptId:string
+    depId:string
     amt:number
 }

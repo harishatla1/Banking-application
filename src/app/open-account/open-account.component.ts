@@ -24,12 +24,6 @@ export class OpenAccountComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.openAccount.getAccountDetails().subscribe((response)=>
-    {
-      let accDetailsResponse=response;
-      console.log(accDetailsResponse);
-
-    });
   }
 
   addAccount(){

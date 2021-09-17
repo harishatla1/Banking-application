@@ -7,14 +7,14 @@
                     <h3>Deposit</h3>
                 </div>
                 <div id="dsg">
-                    <form  #Deposit='ngForm' class="from-group text-center"  (ngSubmit)=depositAmount()>
+                    <form  #Deposit='ngForm' class="from-group text-center" (ngSubmit)="addAmount()">
                         <div class="row">
                             <div class="col-lg-12">
 
                                 <div class="form-group">
                                     <label for="course"> Course: </label>
                                     <select class="form-control"
-                                    [(ngModel)]="depositDet.deptId"
+                                    [(ngModel)]="depositDet.depId"
                                     [ngModelOptions]="{standalone: true}"
                                     (change)=loadBalance($event)
                                     placeholder="Select Account">
@@ -28,7 +28,7 @@
                                     <label> Balance:</label>
                                      <input class="form-control"
                                      type="number"
-                                     [value]='depositDet.amt'
+                                     [value]='amount'
                                      disabled>
                                 </div>
 
@@ -37,12 +37,12 @@
                                     <input class="form-control"
                                     type="number"
                                     name="amount" 
-                                    placeholder="Enter Mobile"
-                                    [(ngModel)]='depositDet.amt'>
+                                     [(ngModel)]='depositDet.amt'
+                                    >
                                 </div>
 
                                 <input  id="button" 
-                                        type="submit" 
+                                        type="submit"
                                         class="btn btn-success btn-block"
                                     >
                             </div>
@@ -58,22 +58,7 @@
     </div>
 </div>
 
-<h3>{{depositDet.deptId}}</h3>
-<h3>{{depositDet.amt}}</h3>
-
-
-
-<!-- <div class="form-group">
-    <label for="course"> Course: </label>
-    <select class="form-control" 
-        [(ngModel)]="addApplicationData.coursePojo.courseId"
-        (change)=loadBranches($event) 
-        [ngModelOptions]="{standalone: true}">
-        <option [value]='course.courseId' *ngFor="let course of allCourses">
-            {{course.courseId}}-{{course.courseName}}
-        </option>
-    </select>
-</div> -->
+ 
 
  
 

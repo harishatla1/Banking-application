@@ -11,8 +11,18 @@ import { OpenAccount } from '../shared/openAccount';
 export class DepositComponent implements OnInit {
 
   depositDet:Deposit={
-    deptId:'',
+    depId:'',
     amt:0
+  }
+  amount=0;
+
+  printValues(){
+
+    let newDeptId=this.depositDet.depId;
+    let newAmt=this.depositDet.amt;
+    console.log(newDeptId);
+    console.log(newAmt);
+
   }
 
   constructor(public openAccount: OpenAccountService) { }
@@ -29,19 +39,24 @@ export class DepositComponent implements OnInit {
   }
 
   loadBalance(event:any){
-    this.depositDet.deptId=event.target.value
-    console.log(this.depositDet.deptId)
+    this.depositDet.depId=event.target.value
+    console.log(this.depositDet.depId)
     for(let i=0;i<this.accDetailsresponse.length;i++){
-      if(this.accDetailsresponse[i].account_no==this.depositDet.deptId){
-        this.depositDet.amt=this.accDetailsresponse[i].bal;
-        console.log(this.depositDet.amt);
+      if(this.accDetailsresponse[i].account_no==this.depositDet.depId){
+        this.amount=this.accDetailsresponse[i].bal;
+        console.log(this.amount);
         break;
       }
     }
   }
 
-  depositAmount(){
-    this.openAccount
+  addAmount(){
+    this.openAccount.depositAmount(this.depositDet).subscribe((response)=>{
+      let newAddedAmount = response;
+      console.log(newAddedAmount);
+    });
   }
+
+   
 
 }
